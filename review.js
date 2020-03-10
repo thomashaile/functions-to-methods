@@ -194,7 +194,7 @@ const generateFileSectionMd = (fileReport) => {
       if (entry.error) {
         return entry.error.includes('SyntaxError')
           ? entry.error
-          : 'x ' + entry.error;
+          : entry.error;
       }
       if (entry.warning) {
         return 'warning: ' + entry.warning;

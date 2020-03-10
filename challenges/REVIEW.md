@@ -1,6 +1,6 @@
 # functions-to-methods/
 
-> 3/10/2020, 12:24:11 PM 
+> 3/10/2020, 12:43:39 PM 
 
 ## challenges/ - error
 
@@ -20,7 +20,7 @@
 * [review source](refactor-1.js)
 
 ```txt
-x TypeError: Cannot read property '0' of undefined
+TypeError: Cannot read property '0' of undefined
     at Object.<anonymous> ( [...] /challenges/refactor-1.js:13:23)
     at Module._compile (internal/modules/cjs/loader.js:777:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:788:10)
