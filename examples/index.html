@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf8'>
+  <title>functions-to-methods</title>
+  <script id='js-tutor'>
+    function inJsTutor(id) {
+      fetch(id)
+        .then(res => res.text())
+        .then(code => {
+          console.log(id + ' - js tutor');
+          const encoded = encodeURIComponent(code);
+          const sanitized = encoded.replace(/\(/g, '%28').replace(/\)/g, '%29');
+          const deTabbed = sanitized.replace(/%09/g, '%20%20');
+          const jsTutorUrl = "http://www.pythontutor.com/live.html#code="
+            + deTabbed
+            + "&cumulative=false&curInstr=2&heapPrimitives=false&mode=display&origin=opt-live.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false";
+          window.open(jsTutorUrl, '_blank');
+        })
+        .catch(err => {
+          console.log(id + ' - js tutor');
+          console.log(err);
+        });
+    }
+  </script>
+  <script id='in-debugger'>
+    function inDebugger(id) {
+      fetch(id)
+        .then(res => res.text())
+        .then(code => {
+          console.log(id + ' - debugger');
+          (() => { eval("debugger; // injected by inDebugger function\n\n" + code) })();
+        })
+        .catch(err => {
+          console.log(id + ' - debugger');
+          console.log(err);
+        });
+    }
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1 id='top'>functions-to-methods</h1>
+    <h2>examples/</h2>
+  </header>
+
+  <br>
+
+  <li><a href="../index.html">../index.html</a></li>
+
+<br>  
+  <hr>
+
+  <section  id="./1-write-to-object.js">
+    <h2>1-write-to-object.js</h2>
+    <button onclick="inDebugger('./1-write-to-object.js')">step through in debugger</button>
+    <button onclick="inJsTutor('./1-write-to-object.js')">open in js tutor</button>
+    <br>
+  </section>
+  <br>
+
+  <hr>
+
+  <section  id="./2-read-from-object.js">
+    <h2>2-read-from-object.js</h2>
+    <button onclick="inDebugger('./2-read-from-object.js')">step through in debugger</button>
+    <button onclick="inJsTutor('./2-read-from-object.js')">open in js tutor</button>
+    <br>
+  </section>
+  <br>
+
+  <hr>
+
+  <section  id="./3-read-and-write.js">
+    <h2>3-read-and-write.js</h2>
+    <button onclick="inDebugger('./3-read-and-write.js')">step through in debugger</button>
+    <button onclick="inJsTutor('./3-read-and-write.js')">open in js tutor</button>
+    <br>
+  </section>
+  <br>
+
+  <hr>
+
+  <section  id="./4-two-methods.js">
+    <h2>4-two-methods.js</h2>
+    <button onclick="inDebugger('./4-two-methods.js')">step through in debugger</button>
+    <button onclick="inJsTutor('./4-two-methods.js')">open in js tutor</button>
+    <br>
+  </section>
+  <br>
+
+</body>
+
+</html>

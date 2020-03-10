@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf8'>
+  <title>functions-to-methods</title>
+  <script id='js-tutor'>
+    function inJsTutor(id) {
+      fetch(id)
+        .then(res => res.text())
+        .then(code => {
+          console.log(id + ' - js tutor');
+          const encoded = encodeURIComponent(code);
+          const sanitized = encoded.replace(/\(/g, '%28').replace(/\)/g, '%29');
+          const deTabbed = sanitized.replace(/%09/g, '%20%20');
+          const jsTutorUrl = "http://www.pythontutor.com/live.html#code="
+            + deTabbed
+            + "&cumulative=false&curInstr=2&heapPrimitives=false&mode=display&origin=opt-live.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false";
+          window.open(jsTutorUrl, '_blank');
+        })
+        .catch(err => {
+          console.log(id + ' - js tutor');
+          console.log(err);
+        });
+    }
+  </script>
+  <script id='in-debugger'>
+    function inDebugger(id) {
+      fetch(id)
+        .then(res => res.text())
+        .then(code => {
+          console.log(id + ' - debugger');
+          (() => { eval("debugger; // injected by inDebugger function\n\n" + code) })();
+        })
+        .catch(err => {
+          console.log(id + ' - debugger');
+          console.log(err);
+        });
+    }
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1 id='top'>functions-to-methods</h1>
+    <h2>./</h2>
+  </header>
+
+    <h3>sub-directories</h3
+  <ul>
+      <li><a href='./challenges/index.html'>challenges/</a></li>
+      <li><a href='./examples/index.html'>examples/</a></li>
+
+  </ul>
+
+<br>  
+  <hr>
+
+  <section  id="./review.js">
+    <h2>review.js</h2>
+    <button onclick="inDebugger('./review.js')">step through in debugger</button>
+    <button onclick="inJsTutor('./review.js')">open in js tutor</button>
+    <br>
+  </section>
+  <br>
+
+</body>
+
+</html>
