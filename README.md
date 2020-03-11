@@ -42,6 +42,8 @@ This repository contains two folders, one is completed examples for you to step 
 
 ## Reviewing your Work
 
+> :warning: Open [./review.js](./review.js) and replace `hackyourfuturebelgium` with your GitHub user name in the `CONFIG` object! :warning:
+
 It's not enough to pass the tests once and move on!
 
 You will need to come back to review your exercises (all of them, not just these `:)`) over the coming months and year if you want to stay sharp and remember everything you've learned.
