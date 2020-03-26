@@ -1,11 +1,13 @@
 // refactor this function into a method
 const mergeArrays = (arr1, arr2) => {
-  return [...arr1, ...arr2];
+    return [...arr1, ...arr2];
 }
 
 const obj = {
-  array: [3],
-  mergeArrays: function (arrToMerge) { }
+    array: [3],
+    mergeArrays: function(arrToMerge) {
+        return [...this.array, ...arrToMerge];
+    }
 }
 
 

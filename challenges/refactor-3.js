@@ -1,11 +1,13 @@
 // refactor this function to a method
 const remix = (str, mixer) => {
-  return str.split('').join(mixer);
+    return str.split('').join(mixer);
 }
 
 const obj = {
-  mixer: '',
-  remix: function (str) { }
+    mixer: '',
+    remix: function(str) {
+        return str.split('').join(this.mixer);
+    }
 };
 
 console.assert(obj.remix('hello') === 'hello', 'Test 1');
